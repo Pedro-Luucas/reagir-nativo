@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity, Pressable } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import * as Clipboard from 'expo-clipboard';
 
 export default function Janela(props) {
@@ -7,15 +7,15 @@ export default function Janela(props) {
             <View style={styles.contentBox}>
                 
                 <Text style={styles.titulo}>A SENHA GERADA É:</Text>
-                <TouchableOpacity onPress={() => Clipboard.setStringAsync(props.senha)}>
-                    <Text style={styles.texto} >{props.senha}</Text>
+                <TouchableOpacity style={styles.buttonSenha} onPress={() => Clipboard.setStringAsync(props.senha)}>
+                    <Text style={styles.textoSenha}>{props.senha}</Text>
                 </TouchableOpacity>
                 
                 <View style={styles.voltarSalvar}>
-                    <TouchableOpacity style={styles.buttonVoltar}>
+                    <TouchableOpacity style={styles.buttonVoltar} onPress={props.handleClose}>
                         <Text style={styles.textVoltar}>Voltar</Text>
                     </TouchableOpacity>   
-                    <TouchableOpacity style={styles.buttonSalvar} >
+                    <TouchableOpacity style={styles.buttonSalvar}>
                         <Text style={styles.textSalvar}>Salvar</Text>
                     </TouchableOpacity>
                 </View>
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     contentBox: {
         backgroundColor: '#fff',
         width: '80%',
-        height: '15%',
+        height: '25%',
         borderRadius: 10,
         padding: 10,
         alignItems: 'center',
@@ -53,7 +53,36 @@ const styles = StyleSheet.create({
         marginTop: 20,
         marginBottom: 10,
     },
-    texto: {
+    buttonSenha: {
+        backgroundColor: '#000000',
+        padding: 10,
+        borderRadius: 10,
+        width: '80%',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    textoSenha: {
         fontSize: 16,
+        fontWeight: 'bold',
+        color: '#FFFFFF',
+    },
+    buttonSalvar: {
+        backgroundColor: '#fd7e14',
+        padding: 10,
+        borderRadius: 10,
+        width: '40%',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    textSalvar: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: '#FFFFFF',
+    },
+    buttonVoltar: {
+        padding: 10,
+        width: '40%',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 });

@@ -2,15 +2,17 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity, Modal } from 'react-native';
 import React from 'react';
 import { useState } from 'react';
-import ModalSenha from './components/ModalSenha';
+import ModalGerar from './components/ModalGerar';
 import Slider from '@react-native-community/slider';
 import * as Clipboard from 'expo-clipboard';
+
 
 
 export default function App() {
   const [size, setSize] = useState(10);
   const [password, setPassword] = useState("");
-  const [visiblee, setVisiblee] = useState(false);
+  const [gerarVisible, setGerarVisible] = useState(false);
+  const [senhasVisible, setSenhasVisible] = useState(false);
   
   function passwordGenerate(){
     let pass = "";
@@ -19,8 +21,14 @@ export default function App() {
       pass += charset.charAt(Math.floor(Math.random() * n));
     }
     setPassword(pass);
-    setVisiblee(true);
+    setGerarVisible(true);
   }
+
+  function senhasSalvas(){
+
+    setSenhasVisible(true);
+  }
+
 
   return (
     <View style={styles.container}>
@@ -44,10 +52,9 @@ export default function App() {
         </TouchableOpacity>
       </View>
       
-      <Modal visible={visiblee} animationType="fade" transparent={true} onDismiss={() => setVisiblee(false)}>
-        <ModalSenha senha={password} />
+      <Modal visible={gerarVisible} animationType="fade" transparent={true} onDismiss={() => setGerarVisible(false)}>
+        <ModalGerar senha={password} handleClose={ () => setGerarVisible(false)} />
       </Modal>
-    <Text>senha {password}</Text>
     </View>
   );
 }
