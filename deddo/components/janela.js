@@ -13,7 +13,7 @@ export default function Janela(props) {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'rgba(24,24,24,0.6)',
+        backgroundColor: 'rgba(24,24,24,0.5)',
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
