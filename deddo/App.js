@@ -2,8 +2,10 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity, Modal } from 'react-native';
 import React from 'react';
 import { useState } from 'react';
-import Janela from './components/janela';
+import ModalSenha from './components/ModalSenha';
 import Slider from '@react-native-community/slider';
+import * as Clipboard from 'expo-clipboard';
+
 
 export default function App() {
   const [size, setSize] = useState(10);
@@ -42,8 +44,8 @@ export default function App() {
         </TouchableOpacity>
       </View>
       
-      <Modal visible={visiblee} animationType="fade" onDismiss={() => setVisiblee(false)}>
-        <Janela senha={password} />
+      <Modal visible={visiblee} animationType="fade" transparent={true} onDismiss={() => setVisiblee(false)}>
+        <ModalSenha senha={password} />
       </Modal>
     <Text>senha {password}</Text>
     </View>
