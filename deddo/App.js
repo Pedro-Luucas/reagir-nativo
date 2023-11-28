@@ -4,8 +4,6 @@ import React from 'react';
 import { useState } from 'react';
 import ModalGerar from './components/ModalGerar';
 import Slider from '@react-native-community/slider';
-import * as Clipboard from 'expo-clipboard';
-
 
 
 export default function App() {
@@ -22,6 +20,20 @@ export default function App() {
     }
     setPassword(pass);
     setGerarVisible(true);
+  }
+
+
+  //amanha eu termino
+  //https://www.youtube.com/watch?v=_OReRNRR3eI 5:39
+  async function salvarSenha(senha){
+    console.log(senha);
+    await fetch(config.urlRoot + '/gerar', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({senha: senha})
+    })
   }
 
   function senhasSalvas(){
