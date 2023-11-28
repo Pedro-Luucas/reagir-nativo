@@ -16,4 +16,4 @@ app.listen(port, () => {
 app.post('/gerar', (req, res) => {
     let pass = req.body.senha;
     res.json({senha: pass});
-}
+})

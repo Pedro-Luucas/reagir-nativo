@@ -15,7 +15,7 @@ export default function Janela(props) {
                     <TouchableOpacity style={styles.buttonVoltar} onPress={props.handleClose}>
                         <Text style={styles.textVoltar}>Voltar</Text>
                     </TouchableOpacity>   
-                    <TouchableOpacity style={styles.buttonSalvar}>
+                    <TouchableOpacity style={styles.buttonSalvar} onPress={props.handleSalvar}>
                         <Text style={styles.textSalvar}>Salvar</Text>
                     </TouchableOpacity>
                 </View>

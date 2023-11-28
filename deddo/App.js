@@ -4,6 +4,7 @@ import React from 'react';
 import { useState } from 'react';
 import ModalGerar from './components/ModalGerar';
 import Slider from '@react-native-community/slider';
+import config from './config'; 
 
 
 export default function App() {
@@ -65,7 +66,7 @@ export default function App() {
       </View>
       
       <Modal visible={gerarVisible} animationType="fade" transparent={true} onDismiss={() => setGerarVisible(false)}>
-        <ModalGerar senha={password} handleClose={ () => setGerarVisible(false)} />
+        <ModalGerar senha={password} handleClose={ () => setGerarVisible(false)} handleSalvar={ () => salvarSenha(password)} />
       </Modal>
     </View>
   );
